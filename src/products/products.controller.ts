@@ -8,14 +8,15 @@ export class productsController {
   constructor(private readonly productService: ProductsService) {}
   // @Post('register')
   @Post()
-  addProduct(
+  async addProduct(
     @Body() body: Product,
     // @Body('title') prodTitle: string,
     // @Body('description') prodDesc: string,
     // @Body('price') prodPrice: number,
-  ): { id: string } {
+  ): Promise<{ id: string }> {
     // return this.productService.insertProduct(prodTitle, prodDesc, prodPrice);
-    return this.productService.insertProduct(body);
+    const id = await this.productService.insertProduct(body);
+    return { id };
   }
 
   @Get()
