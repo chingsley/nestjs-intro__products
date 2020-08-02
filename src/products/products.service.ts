@@ -7,11 +7,11 @@ export class ProductsService {
 
   // insertProduct(prod: Product) {}
   insertProduct(obj: Product): { id: string } {
-    const { title, description, price } = obj;
-    const id = new Date().getTime().toString();
-    const newProduct = new Product(id, title, description, price);
-    this.products.push(newProduct);
-    return { id };
+    // const { title, description, price } = obj;
+    // const id = new Date().getTime().toString();
+    // const newProduct = new Product(id, title, description, price);
+    // this.products.push(newProduct);
+    return { id: 'work in progress' };
   }
 
   findAll(): Product[] {
@@ -31,9 +31,7 @@ export class ProductsService {
       description: description || prod.description,
       price: price || prod.price,
     };
-    this.products[prodIndex] = updatedProduct;
-    // const products = this.products.map(product => (product.id === id ? updatedProduct : product));
-    // this.products = products;
+    // this.products[prodIndex] = updatedProduct;
     return updatedProduct;
   }
 

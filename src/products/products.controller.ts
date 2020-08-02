@@ -15,18 +15,21 @@ export class productsController {
     // @Body('price') prodPrice: number,
   ): { id: string } {
     // return this.productService.insertProduct(prodTitle, prodDesc, prodPrice);
-    return this.productService.insertProduct(body);
+    // return this.productService.insertProduct(body);
+    return {id: 'work in progress'};
+
   }
 
   @Get()
-  getAllProducts(): Product[] {
-    return this.productService.findAll();
-  }
+  // getAllProducts(): Product[] {
+  //   // return this.productService.findAll();
+  // }
 
   @Get(':id')
   getProduct(@Param() params: { id: string }): any {
     const { id } = params;
-    return this.productService.findOne(id);
+    // return this.productService.findOne(id);
+    return 'work in progress';
   }
 
   @Patch(':id')
@@ -37,12 +40,12 @@ export class productsController {
     @Body('price') price: number,
   ): any {
     const { id } = params;
-    return this.productService.update(id, title, desc, price);
+    return 'work in progress';
   }
 
   @Delete(':id')
   removeProduct(@Param() params: { id: string }): any {
     const { id } = params;
-    return this.productService.destroy(id);
+    return 'work in progress';
   }
 }

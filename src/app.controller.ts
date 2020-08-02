@@ -6,7 +6,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): { name: string } {
-    return { name: 'kingsley'}
+  getHello(): { serverStatus: string } {
+    const serverStatus = this.appService.getServerStatus();
+    return {serverStatus}
   }
 }

@@ -1,13 +1,33 @@
-console.log('product.model.ts');
+import { Column, Model, Table, BelongsTo, ForeignKey } from 'sequelize-typescript';
+import { User } from '../users/user.model';
 
-export class Product {
-  constructor(
-    public id: string,
-    public title: string,
-    public description: string,
-    public price: number,
-  ) {}
+@Table
+export class Product extends Model<Product> {
+  @Column
+  title: string;
+
+  @Column
+  description: string;
+
+  @Column
+  price: number;
+
+  @ForeignKey(() => User)
+  @Column
+  userId: number;
+
+  @BelongsTo(() => User)
+  user: User;
 }
+
+// export class Product {
+//   constructor(
+//     public id: string,
+//     public title: string,
+//     public description: string,
+//     public price: number,
+//   ) {}
+// }
 
 // export class Product {
 //   id: string;
